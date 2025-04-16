@@ -41,6 +41,19 @@ def test_task_tracker_remove_a_single_task_as_complete():
 
 
 """
+Given multiple tasks to input
+Action to remove completed input from list
+"""
+def test_task_tracker_remove_a_single_task_as_complete_from_a_list_of_tasks():
+    task_tracker = TaskTracker()
+    task_tracker.add_todo_tasks("Walk the dog")
+    task_tracker.add_todo_tasks("Clean the kitchen")
+    task_tracker.add_todo_tasks("Wash the dog")
+    result = task_tracker.mark_as_complete("Walk the dog")
+    assert result == ["Clean the kitchen", "Wash the dog"]
+
+
+"""
 Given a name and no task
 #task_tracker raises an exception
 """
